@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-gem 'sqlite3'
+ruby '2.7.2'
+gem 'rails', '~> 5.2.8.1'
+gem 'pg', '>=0.18', '<2.0'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -26,9 +26,10 @@ group :development do
   gem 'better_errors'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
+  gem 'erd'
 end
 group :development, :test do
-  gem 'factory_girl_rails'
+  # gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
 end
@@ -38,3 +39,5 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
+
+gem "letter_opener", group: :development

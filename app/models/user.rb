@@ -5,7 +5,19 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable
 
-  has_many :roles
   has_many :workdays
   has_many :leaves
+
+  enum role: [:admin, :hr, :employee]
+
+  def assign_role
+    if self.user_role == "admin"
+      self.role = Role.find_by name: 'admin' if role.nil?
+    elsif self.user_role == "hr"
+      self.role = Role.find_by name: 'hr' if role.nil?
+    else
+      self.role = Role.find_by name: 'employee' if role.nil?
+    end
+  end
+
 end

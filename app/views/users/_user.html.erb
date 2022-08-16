@@ -1,2 +1,39 @@
-<td><%= link_to user.first_name, user %></td>
-<td><%= link_to user.email, user %></td>
+<h1>Employee's Attendance</h1>
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Role</th>
+      <th>Email</th>
+      <th>DOB</th>
+      <th>Gender</th>
+      <th>Contact</th>
+      <th>Address</th>
+      <th>Designation</th>
+      <th>Attendance</th>
+      <th>Status</th>
+      <th>Date</th>
+      <th>Edit User</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.first_name, user_path(user) %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.role %></td>
+        <td><%= user.email %></td>
+        <td><%= user.date_of_birth %></td>
+        <td><%= user.gender %></td>
+        <td><%= user.contact_number %></td>
+        <td><%= user.address %></td>
+        <td><%= user.designation %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+        <td><%= Date.today %></td>
+        <td><%= link_to 'Edit account', edit_user_registration_path %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

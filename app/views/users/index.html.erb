@@ -1,16 +1,28 @@
-<div class="container">
-  <div class="row">
-    <h3>Users</h3>
-    <div class="column">
-      <table class="table">
-        <tbody>
-          <% @users.each do |user| %>
+<div class="container mt-5">
+    <% if current_user.role == 'employee'%>
+      <h1><%= "Hello, #{current_user.first_name}." %></h1>
+      <div class="well col-lg-12">
+        <table id="table" class="table table-bordered table-striped">
+          <thead>
             <tr>
-              <%= render user %>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Date Of Birth</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
+          </thead>
+          <tbody>
+            <tr>
+                <td><%= current_user.first_name %></td>
+                <td><%= current_user.last_name %></td>
+                <td><%= current_user.date_of_birth %></td>
+            </tr>
+          </tbody>
+        </table>
+    <% elsif current_user.role == 'hr' %>
+      <h1><%= "Hello, #{current_user.first_name}(HR)" %></h1>
+      <%= render current_user %>
+    <% else %>
+      <h1><%= "Hello, #{current_user.first_name}(Admin)" %></h1>
+      <%= render current_user %>
+    <% end %>
 </div>

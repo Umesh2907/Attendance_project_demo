@@ -390,7 +390,7 @@ views changing calls from:
 to:
 
     <%= render "devise/shared/error_messages", resource: resource %>
-
+create-model
 To start customizing how errors are displayed, you can copy the partial
 from devise to your `app/views` folder. Alternatively, you can run
 `rails g devise:views` which will copy all of them again to your app.
@@ -1094,752 +1094,347 @@ Migrating to RemoveNameFromUsers (20220810065040)
   [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2710317252118963095)[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Started GET "/users/sign_in" for ::1 at 2022-08-10 12:40:23 +0530
+Started GET "/" for ::1 at 2022-08-10 12:48:45 +0530
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered visitors/index.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_links_for_auth.html.erb (26.7ms)
+  Rendered layouts/_navigation.html.erb (28.6ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 113ms (Views: 99.9ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/" for ::1 at 2022-08-10 12:48:47 +0530
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered visitors/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_links_for_auth.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (6.3ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 85ms (Views: 80.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/edit" for ::1 at 2022-08-10 12:48:50 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from block in _app_views_devise_registrations_edit_html_erb__4218059534380564077_28580 at /home/umesh/Project/Attendance_project_demo/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (1406.8ms)
+Completed 500 Internal Server Error in 1430ms (ActiveRecord: 1.4ms)
+
+
+
+NoMethodError - undefined method `name' for #<User:0x00007fe56c15af00>:
+  app/views/devise/registrations/edit.html.erb:7:in `block in _app_views_devise_registrations_edit_html_erb__4218059534380564077_28580'
+  app/views/devise/registrations/edit.html.erb:3:in `_app_views_devise_registrations_edit_html_erb__4218059534380564077_28580'
+
+Started POST "/__better_errors/224972a3fac8d1dc/variables" for ::1 at 2022-08-10 12:48:51 +0530
+Started GET "/users/sign_in" for ::1 at 2022-08-12 17:19:06 +0530
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from block in _app_views_devise_sessions_new_html_erb___1049647576310351103_21420 at /home/umesh/Project/Attendance_project_demo/app/views/devise/sessions/new.html.erb:4)
+  Rendered devise/sessions/new.html.erb within layouts/application (1688.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.9ms)
+  Rendered layouts/_navigation.html.erb (4.8ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 2097ms (Views: 2052.2ms | ActiveRecord: 8.7ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2022-08-12 17:19:12 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D+Ueo+rjjaVSCyoTarFrj7B9O5dJyrsl0+YnwqCxfWhySgrxrblo3VsRYgu9K2U0ITTyDEeqh4fxwXgRINAqfg==", "user"=>{"email"=>"test1@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "test1@example.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 12ms (ActiveRecord: 4.9ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D+Ueo+rjjaVSCyoTarFrj7B9O5dJyrsl0+YnwqCxfWhySgrxrblo3VsRYgu9K2U0ITTyDEeqh4fxwXgRINAqfg==", "user"=>{"email"=>"test1@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from block in _app_views_devise_sessions_new_html_erb___1049647576310351103_22160 at /home/umesh/Project/Attendance_project_demo/app/views/devise/sessions/new.html.erb:4)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.8ms)
+  Rendered layouts/_navigation.html.erb (2.5ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 233ms (Views: 54.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2022-08-12 17:19:34 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VBR4FxWXgyXKb1p0MtdZy40NH+rbv0fA7g/Op+pFAMApu2xFUs1mXcN1EmzlTVdwHETWcdXfe2LMKJF0aiRX1g==", "user"=>{"email"=>"abc@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "abc@example.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 8ms (ActiveRecord: 1.3ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VBR4FxWXgyXKb1p0MtdZy40NH+rbv0fA7g/Op+pFAMApu2xFUs1mXcN1EmzlTVdwHETWcdXfe2LMKJF0aiRX1g==", "user"=>{"email"=>"abc@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from block in _app_views_devise_sessions_new_html_erb___1049647576310351103_22400 at /home/umesh/Project/Attendance_project_demo/app/views/devise/sessions/new.html.erb:4)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 233ms (Views: 54.9ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/users/sign_in" for ::1 at 2022-08-12 17:21:10 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iGbxeWi2ex1UG/JvEBGYDwL06UEENvnEnGMJcpFewSX1yeUrL+yeZV0BunfHi5a0k70g2gpWxWa+RFahET+WMw==", "user"=>{"email"=>"narendra@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "narendra@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", "2022-08-12 11:51:10.745274"], ["sign_in_count", 2], ["updated_at", "2022-08-12 11:51:10.746446"], ["id", 1]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 191ms (ActiveRecord: 7.3ms)
+
+
+Started GET "/users" for ::1 at 2022-08-12 17:21:10 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/_user.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.1ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 64ms (Views: 59.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1" for ::1 at 2022-08-12 17:21:13 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (2.5ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 98ms (Views: 80.7ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users/edit" for ::1 at 2022-08-12 17:21:26 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from block in _app_views_devise_registrations_edit_html_erb___278895058027878774_23100 at /home/umesh/Project/Attendance_project_demo/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (140.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (2.7ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 216ms (Views: 201.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for ::1 at 2022-08-12 17:21:33 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/_user.html.erb (3.8ms)
+  Rendered users/index.html.erb within layouts/application (16.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (2.4ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 111ms (Views: 88.3ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/users" for ::1 at 2022-08-12 18:18:05 +0530
   [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 
 ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
         bin/rails db:migrate RAILS_ENV=development:
 
-Started POST "/__better_errors/8ad491de44a0577e/variables" for ::1 at 2022-08-10 12:40:23 +0530
+Started POST "/__better_errors/2febe62392f9be39/variables" for ::1 at 2022-08-12 18:18:05 +0530
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2710317252118963095)[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateWorkdays (20220809122745)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (34.8ms)[0m  [1m[35mCREATE TABLE "workdays" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220809122745"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateWorklogs (20220809122806)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "worklogs" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220809122806"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateLeaves (20220809122846)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "leaves" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220809122846"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-Migrating to AddColumnsToUsers (20220810064741)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "first_name" character varying[0m
-  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "last_name" character varying[0m
-  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "date_of_birth" date[0m
-  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "role" integer[0m
-  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "gender" character varying[0m
-  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "contact_number" character varying[0m
-  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "address" character varying[0m
-  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "designation" character varying[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220810064741"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-Migrating to RemoveNameFromUsers (20220810065040)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "name"[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220810065040"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnsToLeaves (20220812115616)
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2710317252118963095)[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Started GET "/users/sign_in" for ::1 at 2022-08-10 12:40:49 +0530
+  [1m[35m (5.6ms)[0m  [1m[35mALTER TABLE "leaves" ADD "user_id" integer[0m
+  [1m[35m (23.1ms)[0m  [1m[35mALTER TABLE "leaves" ADD "status" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "leaves" ADD "start_date" date[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "leaves" ADD "end_date" date[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "leaves" ADD "reason" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "leaves" ADD "leave_type" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220812115616"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2710317252118963095)[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Devise::SessionsController#new as HTML
-  Rendering devise/sessions/new.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_sessions_new_html_erb___3321810482171342959_20080 at /home/abc/Rails/Attendance_project_demo/app/views/devise/sessions/new.html.erb:4)
-  Rendered devise/sessions/new.html.erb within layouts/application (1212.8ms)
-  Rendered layouts/_navigation_links.html.erb (0.5ms)
+Started GET "/users" for ::1 at 2022-08-12 18:18:47 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/_user.html.erb (1.3ms)
+  Rendered users/index.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
   Rendered layouts/_nav_links_for_auth.html.erb (0.8ms)
-  Rendered layouts/_navigation.html.erb (2.8ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 1480ms (Views: 1446.9ms | ActiveRecord: 4.1ms)
-
-
-Started GET "/users/sign_up" for ::1 at 2022-08-10 12:46:11 +0530
-Processing by Devise::RegistrationsController#new as HTML
-  Rendering devise/registrations/new.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_new_html_erb___4541663398918999160_20460 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/new.html.erb:4)
-  Rendered devise/registrations/new.html.erb within layouts/application (9.3ms)
-Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
-
-
-
-NoMethodError - undefined method `name' for #<User:0x00007f6564054f30>:
-  app/views/devise/registrations/new.html.erb:7:in `block in _app_views_devise_registrations_new_html_erb___4541663398918999160_20460'
-  app/views/devise/registrations/new.html.erb:2:in `_app_views_devise_registrations_new_html_erb___4541663398918999160_20460'
-
-Started POST "/__better_errors/38f46c9d4f7760f5/variables" for ::1 at 2022-08-10 12:46:11 +0530
-Started GET "/" for ::1 at 2022-08-10 12:47:40 +0530
-Processing by VisitorsController#index as HTML
-  Rendering visitors/index.html.erb within layouts/application
-  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
-  Rendered visitors/index.html.erb within layouts/application (2.7ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.6ms)
-  Rendered layouts/_navigation.html.erb (2.1ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 57ms (Views: 54.5ms | ActiveRecord: 1.0ms)
-
-
-Started GET "/users/sign_in" for ::1 at 2022-08-10 12:47:45 +0530
-Processing by Devise::SessionsController#new as HTML
-  Rendering devise/sessions/new.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_sessions_new_html_erb___3321810482171342959_20980 at /home/abc/Rails/Attendance_project_demo/app/views/devise/sessions/new.html.erb:4)
-  Rendered devise/sessions/new.html.erb within layouts/application (7.5ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.7ms)
-  Rendered layouts/_navigation.html.erb (2.4ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 68ms (Views: 65.7ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/users/sign_up" for ::1 at 2022-08-10 12:47:48 +0530
-Processing by Devise::RegistrationsController#new as HTML
-  Rendering devise/registrations/new.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_new_html_erb___4541663398918999160_21140 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/new.html.erb:4)
-  Rendered devise/registrations/new.html.erb within layouts/application (21.0ms)
-Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.0ms)
-
-
-
-NoMethodError - undefined method `name' for #<User:0x00007f655108fe90>:
-  app/views/devise/registrations/new.html.erb:7:in `block in _app_views_devise_registrations_new_html_erb___4541663398918999160_21140'
-  app/views/devise/registrations/new.html.erb:2:in `_app_views_devise_registrations_new_html_erb___4541663398918999160_21140'
-
-Started POST "/__better_errors/25efe8e98ec18747/variables" for ::1 at 2022-08-10 12:47:48 +0530
-Started GET "/users/sign_up" for ::1 at 2022-08-10 12:47:56 +0530
-Processing by Devise::RegistrationsController#new as HTML
-  Rendering devise/registrations/new.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_new_html_erb___4541663398918999160_21240 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/new.html.erb:4)
-Started POST "/__better_errors/25efe8e98ec18747/variables" for ::1 at 2022-08-10 12:47:56 +0530
-  Rendered devise/registrations/new.html.erb within layouts/application (126.6ms)
-Completed 500 Internal Server Error in 153ms (ActiveRecord: 0.0ms)
-
-
-
-NoMethodError - undefined method `name' for #<User:0x00007f65531a8f78>:
-  app/views/devise/registrations/new.html.erb:7:in `block in _app_views_devise_registrations_new_html_erb___4541663398918999160_21240'
-  app/views/devise/registrations/new.html.erb:2:in `_app_views_devise_registrations_new_html_erb___4541663398918999160_21240'
-
-Started POST "/__better_errors/3baae7305bb2e8ef/variables" for ::1 at 2022-08-10 12:47:56 +0530
-Started GET "/users/sign_up" for ::1 at 2022-08-10 12:50:53 +0530
-Processing by Devise::RegistrationsController#new as HTML
-  Rendering devise/registrations/new.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_new_html_erb___4541663398918999160_21320 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/new.html.erb:4)
-  Rendered devise/registrations/new.html.erb within layouts/application (8.6ms)
-  Rendered layouts/_navigation_links.html.erb (0.5ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (1.3ms)
-  Rendered layouts/_navigation.html.erb (3.3ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 63ms (Views: 60.6ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/users/sign_up" for ::1 at 2022-08-10 13:07:03 +0530
-Processing by Devise::RegistrationsController#new as HTML
-  Rendering devise/registrations/new.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_new_html_erb___4541663398918999160_21500 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/new.html.erb:4)
-  Rendered devise/registrations/new.html.erb within layouts/application (112.7ms)
-Completed 500 Internal Server Error in 119ms (ActiveRecord: 0.9ms)
-
-
-
-NoMethodError - undefined method `roles' for #<Class:0x00007f65500377f0>:
-  app/views/devise/registrations/new.html.erb:61:in `block in _app_views_devise_registrations_new_html_erb___4541663398918999160_21500'
-  app/views/devise/registrations/new.html.erb:2:in `_app_views_devise_registrations_new_html_erb___4541663398918999160_21500'
-
-Started POST "/__better_errors/d5dfbc7d86d32e6b/variables" for ::1 at 2022-08-10 13:07:03 +0530
-Started GET "/users/sign_up" for ::1 at 2022-08-10 13:14:05 +0530
-Processing by Devise::RegistrationsController#new as HTML
-  Rendering devise/registrations/new.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_new_html_erb___4541663398918999160_21640 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/new.html.erb:4)
-  Rendered devise/registrations/new.html.erb within layouts/application (22.5ms)
-Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.0ms)
-
-
-
-NoMethodError - undefined method `role' for #<Class:0x00007f65500377f0>:
-  app/views/devise/registrations/new.html.erb:61:in `block in _app_views_devise_registrations_new_html_erb___4541663398918999160_21640'
-  app/views/devise/registrations/new.html.erb:2:in `_app_views_devise_registrations_new_html_erb___4541663398918999160_21640'
-
-Started POST "/__better_errors/a9c0bd04fdfc4d5c/variables" for ::1 at 2022-08-10 13:14:05 +0530
-Started GET "/users/sign_up" for ::1 at 2022-08-10 13:16:05 +0530
-Processing by Devise::RegistrationsController#new as HTML
-  Rendering devise/registrations/new.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_new_html_erb___4541663398918999160_26680 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/new.html.erb:4)
-  Rendered devise/registrations/new.html.erb within layouts/application (7.8ms)
-  Rendered layouts/_navigation_links.html.erb (0.4ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.6ms)
-  Rendered layouts/_navigation.html.erb (2.4ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 77ms (Views: 50.9ms | ActiveRecord: 4.3ms)
-
-
-Started GET "/users/sign_in" for ::1 at 2022-08-10 13:16:16 +0530
-Processing by Devise::SessionsController#new as HTML
-  Rendering devise/sessions/new.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_sessions_new_html_erb___3321810482171342959_26880 at /home/abc/Rails/Attendance_project_demo/app/views/devise/sessions/new.html.erb:4)
-  Rendered devise/sessions/new.html.erb within layouts/application (3.7ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.6ms)
-  Rendered layouts/_navigation.html.erb (2.1ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 52ms (Views: 48.9ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/users/sign_up" for ::1 at 2022-08-10 13:16:18 +0530
-Processing by Devise::RegistrationsController#new as HTML
-  Rendering devise/registrations/new.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_new_html_erb___4541663398918999160_27040 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/new.html.erb:4)
-  Rendered devise/registrations/new.html.erb within layouts/application (11.7ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.6ms)
-  Rendered layouts/_navigation.html.erb (2.2ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 65ms (Views: 63.2ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/users/sign_up" for ::1 at 2022-08-10 13:23:46 +0530
-Processing by Devise::RegistrationsController#new as HTML
-  Rendering devise/registrations/new.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_new_html_erb___4541663398918999160_32160 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/new.html.erb:4)
-  Rendered devise/registrations/new.html.erb within layouts/application (6.4ms)
-  Rendered layouts/_navigation_links.html.erb (0.4ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (1.4ms)
   Rendered layouts/_navigation.html.erb (3.2ms)
-  Rendered layouts/_messages.html.erb (0.6ms)
-Completed 200 OK in 76ms (Views: 46.4ms | ActiveRecord: 4.7ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 776ms (Views: 731.6ms | ActiveRecord: 8.5ms)
 
 
-Started GET "/users/sign_up" for ::1 at 2022-08-10 13:24:21 +0530
-Processing by Devise::RegistrationsController#new as HTML
-  Rendering devise/registrations/new.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_new_html_erb___4541663398918999160_32320 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/new.html.erb:4)
-  Rendered devise/registrations/new.html.erb within layouts/application (10.5ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.6ms)
-  Rendered layouts/_navigation.html.erb (2.2ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 57ms (Views: 55.5ms | ActiveRecord: 0.0ms)
-
-
-Started POST "/users" for ::1 at 2022-08-10 13:26:06 +0530
-Processing by Devise::RegistrationsController#create as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p55mN2L2nWOO7m8KmDn+SKOVUUk+xUrqX8iinNT1zqef76eBEf0lNmpRkCQMzGwwDRXDYP7J6j171BgIGHML5g==", "user"=>{"first_name"=>"Test", "last_name"=>"", "email"=>"test@gmail.com", "date_of_birth"=>"2000-01-01", "contact_number"=>"1234567890", "address"=>"", "designation"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"employee"}, "commit"=>"Sign up"}
-Unpermitted parameters: :first_name, :last_name, :date_of_birth, :contact_number, :address, :designation, :role
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
-  [1m[36mUser Create (32.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@gmail.com"], ["encrypted_password", "$2a$11$y.y5dKrnaruMRz5wA2s8SOFqbMew/Xhmq8sNhenpF5wN2XIjC0rR."], ["confirmation_token", "aD1CUDpF_pxrAdWGzbBN"], ["confirmation_sent_at", "2022-08-10 07:56:06.667253"], ["created_at", "2022-08-10 07:56:06.667099"], ["updated_at", "2022-08-10 07:56:06.667099"]]
-  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
-  Rendering vendor/bundle/ruby/2.7.0/gems/devise-4.8.1/app/views/devise/mailer/confirmation_instructions.html.erb
-  Rendered vendor/bundle/ruby/2.7.0/gems/devise-4.8.1/app/views/devise/mailer/confirmation_instructions.html.erb (0.6ms)
-Devise::Mailer#confirmation_instructions: processed outbound mail in 173.5ms
-Sent mail to test@gmail.com (75.9ms)
-Date: Wed, 10 Aug 2022 13:26:07 +0530
-From: no-reply@example.com
-Reply-To: no-reply@example.com
-To: test@gmail.com
-Message-ID: <62f36497e1d6_5b53e51a4543b8@abc-Latitude-E5470.mail>
-Subject: Confirmation instructions
-Mime-Version: 1.0
-Content-Type: text/html;
- charset=UTF-8
-Content-Transfer-Encoding: 7bit
-
-<p>Welcome test@gmail.com!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><a href="http://localhost:3000/users/confirmation?confirmation_token=aD1CUDpF_pxrAdWGzbBN">Confirm my account</a></p>
-
-Redirected to http://localhost:3000/
-Completed 302 Found in 615ms (ActiveRecord: 34.3ms)
-
-
-Started GET "/" for ::1 at 2022-08-10 13:26:07 +0530
-Processing by VisitorsController#index as HTML
-  Rendering visitors/index.html.erb within layouts/application
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
-  Rendered visitors/index.html.erb within layouts/application (1.9ms)
-  Rendered layouts/_navigation_links.html.erb (0.5ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (1.2ms)
-  Rendered layouts/_navigation.html.erb (3.4ms)
-  Rendered layouts/_messages.html.erb (0.7ms)
-Completed 200 OK in 62ms (Views: 60.0ms | ActiveRecord: 0.4ms)
-
-
-Started GET "/users/confirmation?confirmation_token=aD1CUDpF_pxrAdWGzbBN" for ::1 at 2022-08-10 13:26:09 +0530
-Processing by Devise::ConfirmationsController#show as HTML
-  Parameters: {"confirmation_token"=>"aD1CUDpF_pxrAdWGzbBN"}
-  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "aD1CUDpF_pxrAdWGzbBN"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Update (34.2ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2022-08-10 07:56:09.766180"], ["updated_at", "2022-08-10 07:56:09.767368"], ["id", 1]]
-  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
-Redirected to http://localhost:3000/users/sign_in
-Completed 302 Found in 55ms (ActiveRecord: 36.4ms)
-
-
-Started GET "/users/sign_in" for ::1 at 2022-08-10 13:26:09 +0530
+Started GET "/users/sign_in" for ::1 at 2022-08-12 18:18:51 +0530
 Processing by Devise::SessionsController#new as HTML
-  Rendering devise/sessions/new.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_sessions_new_html_erb___3321810482171342959_33480 at /home/abc/Rails/Attendance_project_demo/app/views/devise/sessions/new.html.erb:4)
-  Rendered devise/sessions/new.html.erb within layouts/application (9.2ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.6ms)
-  Rendered layouts/_navigation.html.erb (2.2ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 87ms (Views: 82.1ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 2.4ms)
 
 
-Started GET "/" for ::1 at 2022-08-10 13:29:14 +0530
+Started GET "/users/1/leaves" for ::1 at 2022-08-12 18:20:01 +0530
+Processing by LeavesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering leaves/index.html.erb within layouts/application
+  Rendered leaves/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation_links.html.erb (1.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_links_for_auth.html.erb (3.1ms)
+  Rendered layouts/_navigation.html.erb (6.3ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 79ms (Views: 76.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1/leaves" for ::1 at 2022-08-16 11:15:13 +0530
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LeavesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering leaves/index.html.erb within layouts/application
+  Rendered leaves/index.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.8ms)
+  [1m[36mUser Load (10.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_links_for_auth.html.erb (79.9ms)
+  Rendered layouts/_navigation.html.erb (84.3ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 809ms (Views: 771.5ms | ActiveRecord: 24.7ms)
+
+
+Started GET "/" for ::1 at 2022-08-16 11:15:16 +0530
 Processing by VisitorsController#index as HTML
   Rendering visitors/index.html.erb within layouts/application
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
-  Rendered visitors/index.html.erb within layouts/application (3.7ms)
-  Rendered layouts/_navigation_links.html.erb (0.4ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.7ms)
-  Rendered layouts/_navigation.html.erb (2.2ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 41ms (Views: 36.6ms | ActiveRecord: 1.5ms)
+  [1m[35m (12.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered visitors/index.html.erb within layouts/application (14.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_links_for_auth.html.erb (4.0ms)
+  Rendered layouts/_navigation.html.erb (6.8ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 129ms (Views: 112.9ms | ActiveRecord: 14.4ms)
 
 
-Started GET "/pages/about" for ::1 at 2022-08-10 13:29:15 +0530
+Started GET "/pages/about" for ::1 at 2022-08-16 11:15:17 +0530
 Processing by HighVoltage::PagesController#show as HTML
   Parameters: {"id"=>"about"}
   Rendering pages/about.html.erb within layouts/application
-  Rendered pages/about.html.erb within layouts/application (2.4ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.6ms)
-  Rendered layouts/_navigation.html.erb (2.2ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 89ms (Views: 83.3ms | ActiveRecord: 0.0ms)
+  Rendered pages/about.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_links_for_auth.html.erb (10.2ms)
+  Rendered layouts/_navigation.html.erb (12.7ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 129ms (Views: 126.4ms | ActiveRecord: 1.3ms)
 
 
-Started GET "/users/sign_in" for ::1 at 2022-08-10 13:29:17 +0530
-Processing by Devise::SessionsController#new as HTML
-  Rendering devise/sessions/new.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_sessions_new_html_erb___3321810482171342959_38940 at /home/abc/Rails/Attendance_project_demo/app/views/devise/sessions/new.html.erb:4)
-  Rendered devise/sessions/new.html.erb within layouts/application (2.7ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.6ms)
-  Rendered layouts/_navigation.html.erb (2.2ms)
-  Rendered layouts/_messages.html.erb (0.3ms)
-Completed 200 OK in 100ms (Views: 38.5ms | ActiveRecord: 13.3ms)
-
-
-Started POST "/users/sign_in" for ::1 at 2022-08-10 13:29:29 +0530
-Processing by Devise::SessionsController#create as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iI/DbEb+oONglOjAYIK8NTUx9w1fMLTSzF6kAsgYyXbr/m3ihWBrqN8k3NDsMpICFzwvPIZHT2VvJTLgHOxhdw==", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
-  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2022-08-10 07:59:29.245097"], ["last_sign_in_at", "2022-08-10 07:59:29.245097"], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2022-08-10 07:59:29.245771"], ["id", 1]]
-  [1m[35m (33.3ms)[0m  [1m[35mCOMMIT[0m
-Redirected to http://localhost:3000/
-Completed 302 Found in 227ms (ActiveRecord: 35.5ms)
-
-
-Started GET "/" for ::1 at 2022-08-10 13:29:29 +0530
-Processing by VisitorsController#index as HTML
-  Rendering visitors/index.html.erb within layouts/application
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
-  Rendered visitors/index.html.erb within layouts/application (1.7ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered layouts/_nav_links_for_auth.html.erb (2.1ms)
-  Rendered layouts/_navigation.html.erb (3.7ms)
-  Rendered layouts/_messages.html.erb (0.5ms)
-Completed 200 OK in 64ms (Views: 61.6ms | ActiveRecord: 0.9ms)
-
-
-Started GET "/users/edit" for ::1 at 2022-08-10 13:29:31 +0530
-Processing by Devise::RegistrationsController#edit as HTML
-  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering devise/registrations/edit.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_edit_html_erb___4001324949913981748_39360 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/edit.html.erb:4)
-  Rendered devise/registrations/edit.html.erb within layouts/application (9.6ms)
-Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.5ms)
-
-
-
-NoMethodError - undefined method `name' for #<User:0x00007f655c00c580>:
-  app/views/devise/registrations/edit.html.erb:7:in `block in _app_views_devise_registrations_edit_html_erb___4001324949913981748_39360'
-  app/views/devise/registrations/edit.html.erb:3:in `_app_views_devise_registrations_edit_html_erb___4001324949913981748_39360'
-
-Started POST "/__better_errors/93ee836cc0aa22c0/variables" for ::1 at 2022-08-10 13:29:31 +0530
-Started GET "/users/edit" for ::1 at 2022-08-10 13:31:33 +0530
-Processing by Devise::RegistrationsController#edit as HTML
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering devise/registrations/edit.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_edit_html_erb___4001324949913981748_39460 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/edit.html.erb:4)
-  Rendered devise/registrations/edit.html.erb within layouts/application (5.3ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.5ms)
-  Rendered layouts/_navigation.html.erb (2.2ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 57ms (Views: 53.7ms | ActiveRecord: 0.4ms)
-
-
-Started PUT "/users" for ::1 at 2022-08-10 13:31:58 +0530
-Processing by Devise::RegistrationsController#update as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B8ER91gYdF6WcCrqCxqW4loDgLZdoGm5o07k2o6GtwJV5oHqARD7d9JgPaEvskzKswKzv2pHiUapbQrKCpjpvA==", "user"=>{"first_name"=>"Test", "last_name"=>"", "email"=>"test@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
-  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-Unpermitted parameters: :first_name, :last_name
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-Unpermitted parameters: :first_name, :last_name
-Unpermitted parameters: :first_name, :last_name
-Unpermitted parameters: :first_name, :last_name
-Redirected to http://localhost:3000/
-Completed 302 Found in 149ms (ActiveRecord: 1.3ms)
-
-
-Started GET "/" for ::1 at 2022-08-10 13:31:58 +0530
-Processing by VisitorsController#index as HTML
-  Rendering visitors/index.html.erb within layouts/application
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
-  Rendered visitors/index.html.erb within layouts/application (1.5ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered layouts/_nav_links_for_auth.html.erb (1.6ms)
-  Rendered layouts/_navigation.html.erb (3.2ms)
-  Rendered layouts/_messages.html.erb (0.5ms)
-Completed 200 OK in 47ms (Views: 45.9ms | ActiveRecord: 0.6ms)
-
-
-Started GET "/" for ::1 at 2022-08-10 13:33:16 +0530
-Processing by VisitorsController#index as HTML
-  Rendering visitors/index.html.erb within layouts/application
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
-  Rendered visitors/index.html.erb within layouts/application (2.0ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered layouts/_nav_links_for_auth.html.erb (1.8ms)
-  Rendered layouts/_navigation.html.erb (3.4ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 49ms (Views: 46.1ms | ActiveRecord: 1.0ms)
-
-
-Started GET "/users/edit" for ::1 at 2022-08-10 13:33:18 +0530
-Processing by Devise::RegistrationsController#edit as HTML
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering devise/registrations/edit.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_edit_html_erb___4001324949913981748_40020 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/edit.html.erb:4)
-  Rendered devise/registrations/edit.html.erb within layouts/application (7.6ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.5ms)
-  Rendered layouts/_navigation.html.erb (2.1ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 55ms (Views: 51.6ms | ActiveRecord: 0.4ms)
-
-
-Started GET "/users/sign_in" for ::1 at 2022-08-10 13:45:01 +0530
-Processing by Devise::SessionsController#new as HTML
-  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-Redirected to http://localhost:3000/
-Filter chain halted as :require_no_authentication rendered or redirected
-Completed 302 Found in 31ms (ActiveRecord: 6.2ms)
-
-
-Started GET "/" for ::1 at 2022-08-10 13:45:01 +0530
-Processing by VisitorsController#index as HTML
-  Rendering visitors/index.html.erb within layouts/application
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
-  Rendered visitors/index.html.erb within layouts/application (1.2ms)
-  Rendered layouts/_navigation_links.html.erb (0.4ms)
-  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered layouts/_nav_links_for_auth.html.erb (1.9ms)
-  Rendered layouts/_navigation.html.erb (3.7ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 49ms (Views: 47.7ms | ActiveRecord: 0.6ms)
-
-
-Started GET "/users/edit" for ::1 at 2022-08-10 13:45:03 +0530
+Started GET "/users/edit" for ::1 at 2022-08-16 11:15:18 +0530
 Processing by Devise::RegistrationsController#edit as HTML
   [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   Rendering devise/registrations/edit.html.erb within layouts/application
@@ -1859,137 +1454,92 @@ to:
 To start customizing how errors are displayed, you can copy the partial
 from devise to your `app/views` folder. Alternatively, you can run
 `rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_edit_html_erb___4001324949913981748_45380 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/edit.html.erb:4)
-  Rendered devise/registrations/edit.html.erb within layouts/application (9.3ms)
-  Rendered layouts/_navigation_links.html.erb (0.4ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.5ms)
-  Rendered layouts/_navigation.html.erb (2.2ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 60ms (Views: 54.1ms | ActiveRecord: 2.5ms)
-
-
-Started GET "/users/edit" for ::1 at 2022-08-10 13:48:28 +0530
-  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Devise::RegistrationsController#edit as HTML
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering devise/registrations/edit.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_edit_html_erb___170344026138082251_20160 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/edit.html.erb:4)
-Started PUT "/users" for ::1 at 2022-08-10 13:48:28 +0530
-Processing by Devise::RegistrationsController#update as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y96RIqdDamgnijDVZlNoPMd0/5EfpJSyptDeUXmbBO8E+5pm04e+pZXNTVSQtf3k83AP8yWL0gsu7MSFRaW6Bg==", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"test@gmail.com", "date_of_birth"=>"", "contact_number"=>"", "address"=>"", "designation"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
-  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-Unpermitted parameters: :first_name, :last_name, :date_of_birth, :contact_number, :address, :designation
-  Rendered devise/registrations/edit.html.erb within layouts/application (2462.9ms)
-  Rendering devise/registrations/edit.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_edit_html_erb___170344026138082251_20420 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/edit.html.erb:4)
-  Rendered vendor/bundle/ruby/2.7.0/gems/devise-4.8.1/app/views/devise/shared/_error_messages.html.erb (0.8ms)
-  Rendered devise/registrations/edit.html.erb within layouts/application (6.7ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.6ms)
-  Rendered layouts/_navigation.html.erb (3.5ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 3125ms (Views: 3082.5ms | ActiveRecord: 6.1ms)
-
-
-  Rendered layouts/_navigation_links.html.erb (0.5ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.9ms)
-  Rendered layouts/_navigation.html.erb (3.0ms)
+ (called from block in _app_views_devise_registrations_edit_html_erb__623725656162937730_27960 at /home/umesh/Project/Attendance_project_demo/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (3590.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.0ms)
+  Rendered layouts/_navigation.html.erb (4.1ms)
   Rendered layouts/_messages.html.erb (0.9ms)
-Completed 200 OK in 2936ms (Views: 180.0ms | ActiveRecord: 11.5ms)
+Completed 200 OK in 3699ms (Views: 3687.3ms | ActiveRecord: 2.5ms)
 
 
-Started PUT "/users" for ::1 at 2022-08-10 13:48:40 +0530
-Processing by Devise::RegistrationsController#update as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PMkD/p9IWu+v3aCd/Fk6ZPBPucR1PYviLB1X1LvmjNpu7pPjxkDVxuvNt9bY8eBMGU6KzULaax0mPrnEP/jSZA==", "user"=>{"first_name"=>"Test", "last_name"=>"", "email"=>"test@gmail.com", "date_of_birth"=>"", "contact_number"=>"", "address"=>"", "designation"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
-  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-Unpermitted parameters: :first_name, :last_name, :date_of_birth, :contact_number, :address, :designation
-  [1m[35m (11.8ms)[0m  [1m[35mBEGIN[0m
+Started DELETE "/users/sign_out" for ::1 at 2022-08-16 11:15:50 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"eVXR8TVK2bxx/v8J+cGnlpN0H1jEFcdeodOw/0pOJQrycYEaFrwsQf3HFY3Z0p01z12Cm089so6KEV6F91BLaA=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-Unpermitted parameters: :first_name, :last_name, :date_of_birth, :contact_number, :address, :designation
-Unpermitted parameters: :first_name, :last_name, :date_of_birth, :contact_number, :address, :designation
-Unpermitted parameters: :first_name, :last_name, :date_of_birth, :contact_number, :address, :designation
 Redirected to http://localhost:3000/
-Completed 302 Found in 194ms (ActiveRecord: 15.8ms)
+Completed 302 Found in 14ms (ActiveRecord: 1.2ms)
 
 
-Started GET "/" for ::1 at 2022-08-10 13:48:40 +0530
-Processing by VisitorsController#index as HTML
-  Rendering visitors/index.html.erb within layouts/application
-  [1m[35m (9.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
-  Rendered visitors/index.html.erb within layouts/application (10.5ms)
-  Rendered layouts/_navigation_links.html.erb (0.8ms)
-  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered layouts/_nav_links_for_auth.html.erb (5.2ms)
-  Rendered layouts/_navigation.html.erb (9.5ms)
-  Rendered layouts/_messages.html.erb (0.7ms)
-Completed 200 OK in 84ms (Views: 71.6ms | ActiveRecord: 11.4ms)
-
-
-Started GET "/" for ::1 at 2022-08-10 13:50:13 +0530
+Started GET "/" for ::1 at 2022-08-16 11:15:50 +0530
 Processing by VisitorsController#index as HTML
   Rendering visitors/index.html.erb within layouts/application
   [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
-  Rendered visitors/index.html.erb within layouts/application (2.0ms)
+  Rendered visitors/index.html.erb within layouts/application (1.7ms)
   Rendered layouts/_navigation_links.html.erb (0.5ms)
-  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered layouts/_nav_links_for_auth.html.erb (1.9ms)
-  Rendered layouts/_navigation.html.erb (3.7ms)
-  Rendered layouts/_messages.html.erb (0.7ms)
-Completed 200 OK in 82ms (Views: 77.9ms | ActiveRecord: 0.7ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (3.7ms)
+  Rendered layouts/_navigation.html.erb (6.1ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 98ms (Views: 95.9ms | ActiveRecord: 0.4ms)
 
 
-Started GET "/" for ::1 at 2022-08-10 13:52:37 +0530
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_in" for ::1 at 2022-08-16 11:15:56 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from block in _app_views_devise_sessions_new_html_erb___2681933252017955168_28380 at /home/umesh/Project/Attendance_project_demo/app/views/devise/sessions/new.html.erb:4)
+  Rendered devise/sessions/new.html.erb within layouts/application (10.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.4ms)
+  Rendered layouts/_navigation.html.erb (4.2ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 126ms (Views: 123.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-08-16 11:15:58 +0530
 Processing by VisitorsController#index as HTML
   Rendering visitors/index.html.erb within layouts/application
   [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
-  Rendered visitors/index.html.erb within layouts/application (5.2ms)
+  Rendered visitors/index.html.erb within layouts/application (2.1ms)
   Rendered layouts/_navigation_links.html.erb (0.5ms)
-  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered layouts/_nav_links_for_auth.html.erb (29.5ms)
-  Rendered layouts/_navigation.html.erb (31.9ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.9ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
   Rendered layouts/_messages.html.erb (0.5ms)
-Completed 200 OK in 250ms (Views: 238.6ms | ActiveRecord: 4.8ms)
+Completed 200 OK in 151ms (Views: 147.6ms | ActiveRecord: 0.5ms)
 
 
-Started GET "/users/edit" for ::1 at 2022-08-10 13:52:40 +0530
-Processing by Devise::RegistrationsController#edit as HTML
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering devise/registrations/edit.html.erb within layouts/application
+Started GET "/" for ::1 at 2022-08-16 11:16:00 +0530
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered visitors/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.8ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.5ms)
+  Rendered layouts/_navigation.html.erb (4.8ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 75ms (Views: 72.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-08-16 11:16:02 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
 DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
 removed in the next major version.
 
@@ -2006,124 +1556,18 @@ to:
 To start customizing how errors are displayed, you can copy the partial
 from devise to your `app/views` folder. Alternatively, you can run
 `rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_edit_html_erb___1295956586126791824_20560 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/edit.html.erb:4)
-  Rendered devise/registrations/edit.html.erb within layouts/application (1248.0ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.5ms)
-  Rendered layouts/_navigation.html.erb (2.0ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 1302ms (Views: 1295.5ms | ActiveRecord: 0.7ms)
-
-
-Started PUT "/users" for ::1 at 2022-08-10 13:52:54 +0530
-Processing by Devise::RegistrationsController#update as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IdKZOdTRFssRl4oZRSQoBXYyLQnK8tV0LSPDLGPp6kBG95J9oBXCBqPQ95izwr3dQjbda/Ddk82lH9n4X9dUqQ==", "user"=>{"first_name"=>"Test", "last_name"=>"", "email"=>"test@gmail.com", "date_of_birth"=>"", "contact_number"=>"", "address"=>"", "designation"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
-  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "first_name" = $1, "last_name" = $2, "contact_number" = $3, "address" = $4, "designation" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["first_name", "Test"], ["last_name", ""], ["contact_number", ""], ["address", ""], ["designation", ""], ["updated_at", "2022-08-10 08:22:54.640997"], ["id", 1]]
-  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
-Redirected to http://localhost:3000/
-Completed 302 Found in 159ms (ActiveRecord: 2.9ms)
-
-
-Started GET "/" for ::1 at 2022-08-10 13:52:54 +0530
-Processing by VisitorsController#index as HTML
-  Rendering visitors/index.html.erb within layouts/application
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
-  Rendered visitors/index.html.erb within layouts/application (1.2ms)
-  Rendered layouts/_navigation_links.html.erb (0.4ms)
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered layouts/_nav_links_for_auth.html.erb (2.2ms)
-  Rendered layouts/_navigation.html.erb (4.1ms)
-  Rendered layouts/_messages.html.erb (0.5ms)
-Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.7ms)
-
-
-Started GET "/" for ::1 at 2022-08-10 13:54:47 +0530
-Processing by VisitorsController#index as HTML
-  Rendering visitors/index.html.erb within layouts/application
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
-  Rendered visitors/index.html.erb within layouts/application (1.3ms)
-  Rendered layouts/_navigation_links.html.erb (1.1ms)
-  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered layouts/_nav_links_for_auth.html.erb (1.9ms)
-  Rendered layouts/_navigation.html.erb (4.7ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 53ms (Views: 51.6ms | ActiveRecord: 0.6ms)
-
-
-Started GET "/users/edit" for ::1 at 2022-08-10 13:54:49 +0530
-Processing by Devise::RegistrationsController#edit as HTML
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering devise/registrations/edit.html.erb within layouts/application
-DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
-removed in the next major version.
-
-Devise now uses a partial under "devise/shared/error_messages" to display
-error messages by default, and make them easier to customize. Update your
-views changing calls from:
-
-    <%= devise_error_messages! %>
-
-to:
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-To start customizing how errors are displayed, you can copy the partial
-from devise to your `app/views` folder. Alternatively, you can run
-`rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_edit_html_erb___1295956586126791824_21440 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/edit.html.erb:4)
-  Rendered devise/registrations/edit.html.erb within layouts/application (31.5ms)
-  Rendered layouts/_navigation_links.html.erb (0.4ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.5ms)
-  Rendered layouts/_navigation.html.erb (2.2ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 127ms (Views: 121.0ms | ActiveRecord: 0.7ms)
-
-
-Started PUT "/users" for ::1 at 2022-08-10 13:57:35 +0530
-Processing by Devise::RegistrationsController#update as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SmXpMdYn8CiNwNUxnfgre/T8yFQqK12DyL9vmuBms1gtQOJ1ouMk5T+HqLBrHr6jwPg4NhAEGzpAg3VO3FgNsQ==", "user"=>{"first_name"=>"Test", "last_name"=>"", "email"=>"test@gmail.com", "date_of_birth"=>"2000-11-11", "gender"=>"Male", "contact_number"=>"1234567890", "address"=>"", "designation"=>"junior software developer", "role"=>"employee", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "date_of_birth" = $1, "role" = $2, "gender" = $3, "contact_number" = $4, "designation" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["date_of_birth", "2000-11-11"], ["role", 2], ["gender", "Male"], ["contact_number", "1234567890"], ["designation", "junior software developer"], ["updated_at", "2022-08-10 08:27:36.024680"], ["id", 1]]
-  [1m[35m (32.5ms)[0m  [1m[35mCOMMIT[0m
-Redirected to http://localhost:3000/
-Completed 302 Found in 208ms (ActiveRecord: 36.2ms)
-
-
-Started GET "/" for ::1 at 2022-08-10 13:57:36 +0530
-Processing by VisitorsController#index as HTML
-  Rendering visitors/index.html.erb within layouts/application
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
-  Rendered visitors/index.html.erb within layouts/application (1.4ms)
+ (called from block in _app_views_devise_sessions_new_html_erb___2681933252017955168_28940 at /home/umesh/Project/Attendance_project_demo/app/views/devise/sessions/new.html.erb:4)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.9ms)
   Rendered layouts/_navigation_links.html.erb (0.5ms)
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered layouts/_nav_links_for_auth.html.erb (1.7ms)
-  Rendered layouts/_navigation.html.erb (3.6ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 49ms (Views: 46.4ms | ActiveRecord: 0.6ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.9ms)
+  Rendered layouts/_navigation.html.erb (2.9ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 83ms (Views: 81.3ms | ActiveRecord: 0.0ms)
 
 
-Started GET "/" for ::1 at 2022-08-10 13:58:22 +0530
-Processing by VisitorsController#index as HTML
-  Rendering visitors/index.html.erb within layouts/application
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
-  Rendered visitors/index.html.erb within layouts/application (1.6ms)
-  Rendered layouts/_navigation_links.html.erb (0.4ms)
-  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered layouts/_nav_links_for_auth.html.erb (1.8ms)
-  Rendered layouts/_navigation.html.erb (3.6ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 47ms (Views: 45.2ms | ActiveRecord: 0.7ms)
-
-
-Started GET "/users/edit" for ::1 at 2022-08-10 14:01:14 +0530
-Processing by Devise::RegistrationsController#edit as HTML
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering devise/registrations/edit.html.erb within layouts/application
+Started GET "/users/sign_in" for ::1 at 2022-08-16 11:16:04 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
 DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
 removed in the next major version.
 
@@ -2140,41 +1584,22 @@ to:
 To start customizing how errors are displayed, you can copy the partial
 from devise to your `app/views` folder. Alternatively, you can run
 `rails g devise:views` which will copy all of them again to your app.
- (called from block in _app_views_devise_registrations_edit_html_erb___1295956586126791824_26980 at /home/abc/Rails/Attendance_project_demo/app/views/devise/registrations/edit.html.erb:4)
-  Rendered devise/registrations/edit.html.erb within layouts/application (13.7ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  Rendered layouts/_nav_links_for_auth.html.erb (0.8ms)
-  Rendered layouts/_navigation.html.erb (2.4ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 64ms (Views: 62.2ms | ActiveRecord: 0.2ms)
+ (called from block in _app_views_devise_sessions_new_html_erb___2681933252017955168_29100 at /home/umesh/Project/Attendance_project_demo/app/views/devise/sessions/new.html.erb:4)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.0ms)
+  Rendered layouts/_navigation.html.erb (4.0ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 84ms (Views: 82.9ms | ActiveRecord: 0.0ms)
 
 
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
-  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
-Started PUT "/users" for ::1 at 2022-08-10 14:03:05 +0530
-Processing by Devise::RegistrationsController#update as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e364sHODSC1U0U3di01b2DFxME9bJDUlu1qOHMI5R1wcW7P0B0ec4OaWMFx9q84ABXXALWELc5wzZpTI/gf5tQ==", "user"=>{"first_name"=>"Test", "last_name"=>"example", "email"=>"test@gmail.com", "date_of_birth"=>"2000-11-11", "gender"=>"Male", "contact_number"=>"1234567890", "address"=>"Mr-9", "designation"=>"junior software developer", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
-  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "last_name" = $1, "address" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["last_name", "example"], ["address", "Mr-9"], ["updated_at", "2022-08-10 08:33:05.667499"], ["id", 1]]
-  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
-Redirected to http://localhost:3000/
-Completed 302 Found in 148ms (ActiveRecord: 3.3ms)
-
-
-Started GET "/" for ::1 at 2022-08-10 14:03:05 +0530
+Started GET "/" for ::1 at 2022-08-16 11:16:06 +0530
 Processing by VisitorsController#index as HTML
   Rendering visitors/index.html.erb within layouts/application
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
-  Rendered visitors/index.html.erb within layouts/application (1.2ms)
-  Rendered layouts/_navigation_links.html.erb (0.3ms)
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered layouts/_nav_links_for_auth.html.erb (1.6ms)
-  Rendered layouts/_navigation.html.erb (3.2ms)
-  Rendered layouts/_messages.html.erb (0.4ms)
-Completed 200 OK in 55ms (Views: 52.9ms | ActiveRecord: 0.5ms)
-
-
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered visitors/index.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.0ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 80ms (Views: 77.3ms | ActiveRecord: 0.7ms)

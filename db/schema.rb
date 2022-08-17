@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_12_115616) do
+ActiveRecord::Schema.define(version: 2022_08_17_063138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,14 @@ ActiveRecord::Schema.define(version: 2022_08_12_115616) do
   create_table "workdays", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "day"
+    t.date "date"
+    t.time "intime"
+    t.time "outtime"
+    t.boolean "attendance"
+    t.integer "status"
+    t.time "total_time"
   end
 
   create_table "worklogs", force: :cascade do |t|
